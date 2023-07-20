@@ -1,0 +1,68 @@
+﻿<Window x:Class="TempestQuestDesk.FormCreateQuest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TempestQuestDesk"
+        mc:Ignorable="d"
+        Title="FormCreateQuest" Height="500" Width="360">
+    <Grid ShowGridLines="True" Background="DarkOliveGreen">
+        <!--Определение колонок таблицы-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--Определение строк таблицы-->
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox 
+            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+            x:Name="tbName"
+            Background="Crimson"
+            TextWrapping="Wrap"
+            Padding="10" Margin="15"
+            IsReadOnly="False">
+        </TextBox>
+
+        <TextBox 
+            Grid.Row="1" Grid.Column="0" 
+            Grid.ColumnSpan="2" Grid.RowSpan="3"
+            x:Name="tbDescription"
+            Background="MediumSeaGreen"
+            TextWrapping="Wrap"
+            Padding="10" Margin="10"
+            Height="200"
+            IsReadOnly="False">
+        </TextBox>
+
+        <TextBox
+            Grid.Row="5" Grid.Column="0"
+            x:Name="tbBounty"
+            Background="Gold"
+            TextWrapping="Wrap"
+            Padding="10" Margin="10"
+            IsReadOnly="False"
+            >
+
+        </TextBox>
+
+        <Button
+            Grid.Row="5" Grid.Column="1"
+            x:Name="createQuestButton"
+            Background="Silver"
+            Margin="20"
+            Content="Створити квест"
+            Click="createQuestButton_Click">
+
+        </Button>
+
+    </Grid>
+</Window>

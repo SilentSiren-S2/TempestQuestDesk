@@ -24,5 +24,19 @@ namespace TempestQuestDesk
         {
             InitializeComponent();
         }
+
+        private void createButton_Click(object sender, RoutedEventArgs e)
+        {
+            FormCreateQuest quest = new FormCreateQuest();
+            quest.Owner = this;
+            quest.ShowDialog();
+
+            (Application.Current as App).QuestWindows.Add(quest);
+        }
+
+        private void openButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

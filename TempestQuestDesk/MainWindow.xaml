@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TempestQuestDesk"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <DockPanel LastChildFill="False">
+
+        <StackPanel
+            DockPanel.Dock="Top"
+            Orientation="Horizontal"
+            Background="BurlyWood"
+        >
+            <Button x:Name="createButton" Content="Створити квест" Click="createButton_Click" Background="LightGoldenrodYellow" Padding="10" Margin="10"/>
+            <Button x:Name="openButton" Content="Відкрити квест" Click="openButton_Click" Background="Crimson" Padding="10" Margin="10"/>
+            <TextBlock Background="LightGoldenrodYellow" Padding="10" Margin="10">TextBlock 1</TextBlock>
+            <TextBlock Background="LightBlue" Padding="10" Margin="10">TextBlock 2</TextBlock>
+            <TextBlock Background="LightGray" Padding="10" Margin="10">TextBlock 3</TextBlock>
+            <TextBlock Background="LightSteelBlue" Padding="10" Margin="10">TextBlock 4</TextBlock>
+            <TextBlock Background="LightCoral" Padding="10" Margin="10">TextBlock 5</TextBlock>
+        </StackPanel>
+
+        <TextBlock DockPanel.Dock="Top"
+                   Background="BurlyWood"
+                   Padding="20">
+            Toolbar
+        </TextBlock>
+
+        <TextBlock DockPanel.Dock="Bottom"
+                   Background="LightGreen" 
+                   Padding="10">
+            DockPanel.Dock="Bottom"</TextBlock>
+
+        <TextBlock DockPanel.Dock="Right"
+                   Background="LightCyan"
+                   Padding="10">
+            DockPanel.Dock="Right"</TextBlock>
+
+        <TextBlock DockPanel.Dock="Left"
+                   Background="LightCoral"
+                   Padding="10">
+    
+            DockPanel.Dock="Left"</TextBlock>
+
+    </DockPanel>
 </Window>
