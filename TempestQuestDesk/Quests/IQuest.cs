@@ -10,5 +10,6 @@ namespace TempestQuestDesk.Quests
     internal interface IQuest
     {
         DataRow ToRow(DataTable table);
+        string ToString();
     }
 }

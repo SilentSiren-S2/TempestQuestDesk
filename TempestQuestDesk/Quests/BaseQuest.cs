@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
+using System.Xml.Linq;
 
 namespace TempestQuestDesk.Quests
 {
@@ -23,11 +24,23 @@ namespace TempestQuestDesk.Quests
             this.Reward = reward;
         }
 
+        public BaseQuest(DataRow row) 
+        {
+            this.Name = row["Name"].ToString();
+            this.Description = row["Description"].ToString();
+            this.Reward = row["Reward"].ToString();
+        }
+
         public DataRow ToRow(DataTable table)
         {
             AsRow = table.NewRow();
             AsRow.ItemArray = new object[] { Name, Description, Reward };
             return AsRow;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

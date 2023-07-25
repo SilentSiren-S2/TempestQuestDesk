@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TempestQuestDesk"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <DockPanel LastChildFill="False">
+    <DockPanel LastChildFill="True">
 
         <StackPanel
             DockPanel.Dock="Top"
@@ -43,6 +43,11 @@
                    Padding="10">
     
             DockPanel.Dock="Left"</TextBlock>
+        <ListBox x:Name="lbQuests" SelectionChanged="lbQuests_SelectionChanged">
+            <DataTemplate>
+                <TextBlock Text="{Binding Name}" />
+            </DataTemplate>
+        </ListBox>
 
     </DockPanel>
 </Window>

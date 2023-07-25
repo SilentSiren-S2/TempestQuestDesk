@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TempestQuestDesk"
         mc:Ignorable="d"
         Title="FormCreateQuest" Height="500" Width="360">
-    <Grid ShowGridLines="True" Background="DarkOliveGreen">
+    <Grid ShowGridLines="False" Background="DarkOliveGreen">
         <!--Определение колонок таблицы-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
