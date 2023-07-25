@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempestQuestDesk", "Tempest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempestDB", "TempestDB\TempestDB.csproj", "{91CE59C7-295B-4A9F-8D9E-1AF834CB5095}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuestUCLib", "QuestUCLib\QuestUCLib.csproj", "{77533FF3-623C-418C-8EDB-9FD82B1D2C6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{91CE59C7-295B-4A9F-8D9E-1AF834CB5095}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91CE59C7-295B-4A9F-8D9E-1AF834CB5095}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91CE59C7-295B-4A9F-8D9E-1AF834CB5095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77533FF3-623C-418C-8EDB-9FD82B1D2C6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77533FF3-623C-418C-8EDB-9FD82B1D2C6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77533FF3-623C-418C-8EDB-9FD82B1D2C6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77533FF3-623C-418C-8EDB-9FD82B1D2C6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
