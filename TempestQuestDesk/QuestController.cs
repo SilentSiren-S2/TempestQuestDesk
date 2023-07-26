@@ -57,6 +57,7 @@ namespace TempestQuestDesk
         public static string TableName(string value) => tableName = value;
         private static Connector connector = new Connector();
         public static List<IQuest> questList = new List<IQuest> { };
+        public static List<IQuest> openedQuestList = new List<IQuest> { };
 
         public static void AddQuest(IQuest quest)
         {
@@ -91,9 +92,29 @@ namespace TempestQuestDesk
 
         internal static void OpenQuest(IQuest selectedQuest)
         {
+            foreach (IQuest quest in openedQuestList)
+            {
+                if (quest.Id == selectedQuest.Id && quest.QuestType == selectedQuest.QuestType)
+                {
+                    return;
+                }
+            }
             QuestWindow questWindow = new QuestWindow(selectedQuest);
             questWindow.Show();
             (Application.Current as App).QuestWindows.Add(questWindow);
+            openedQuestList.Add(selectedQuest);
         }
+
+        /*internal static void CloseQuest(int questID, QuestType questType)
+        {
+            foreach (IQuest quest in openedQuestList)
+            {
+                if(quest.Id == questID && quest.QuestType == questType)
+                {
+                    openedQuestList.Remove(quest);
+                    break;
+                }
+            }
+        }*/
     }
 }

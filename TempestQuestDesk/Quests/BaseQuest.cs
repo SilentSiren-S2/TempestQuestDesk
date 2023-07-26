@@ -29,6 +29,7 @@ namespace TempestQuestDesk.Quests
 
         public BaseQuest(DataRow row) 
         {
+            this.Id = (int)row["ID"];
             this.Name = row["Name"].ToString();
             this.Description = row["Description"].ToString();
             this.Reward = row["Reward"].ToString();

@@ -21,7 +21,9 @@ namespace TempestQuestDesk
     /// </summary>
     public partial class QuestWindow : Window
     {
-        private int questID;
+        //private int questID;
+        //private QuestType questType;
+        private IQuest holdingQuest;
         public QuestWindow()
         {
             InitializeComponent();
@@ -29,11 +31,11 @@ namespace TempestQuestDesk
 
         internal QuestWindow(IQuest quest) : this()
         {
+            holdingQuest = quest;
             switch (quest.QuestType)
             {
                 case QuestType.BaseQuest:
                     BaseQuest baseQuest = (BaseQuest)quest;
-                    questID = baseQuest.Id;
                     this.Title = baseQuest.Name;
                     UCBaseQuest questControl = new UCBaseQuest(baseQuest.Name, baseQuest.Description, baseQuest.Reward);
                     pMain.Children.Add(questControl);
@@ -49,6 +51,11 @@ namespace TempestQuestDesk
         private void bUpdateQuest_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MainController.openedQuestList.Remove(holdingQuest);
         }
     }
 }

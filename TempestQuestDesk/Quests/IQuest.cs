@@ -12,5 +12,6 @@ namespace TempestQuestDesk.Quests
         DataRow ToRow(DataTable table);
         string ToString();
         QuestType QuestType { get; }
+        int Id { get; }
     }
 }

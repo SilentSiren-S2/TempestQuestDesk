@@ -121,5 +121,11 @@
       <Name>TempestDB</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\TempesT.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\TempesT.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
