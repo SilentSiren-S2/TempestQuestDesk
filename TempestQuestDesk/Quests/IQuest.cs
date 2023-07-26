@@ -9,7 +9,7 @@ namespace TempestQuestDesk.Quests
 {
     internal interface IQuest
     {
-        DataRow ToRow(DataTable table);
+        DataRow ToRow();
         string ToString();
         QuestType QuestType { get; }
         int Id { get; }

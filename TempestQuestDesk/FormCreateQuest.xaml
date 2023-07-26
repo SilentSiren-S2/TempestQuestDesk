@@ -6,63 +6,16 @@
         xmlns:local="clr-namespace:TempestQuestDesk"
         mc:Ignorable="d"
         Title="FormCreateQuest" Height="500" Width="360">
-    <Grid ShowGridLines="False" Background="DarkOliveGreen">
-        <!--Определение колонок таблицы-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-        <!--Определение строк таблицы-->
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <TextBox 
-            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
-            x:Name="tbName"
-            Background="Crimson"
-            TextWrapping="Wrap"
-            Padding="10" Margin="15"
-            IsReadOnly="False">
-        </TextBox>
-
-        <TextBox 
-            Grid.Row="1" Grid.Column="0" 
-            Grid.ColumnSpan="2" Grid.RowSpan="3"
-            x:Name="tbDescription"
-            Background="MediumSeaGreen"
-            TextWrapping="Wrap"
-            Padding="10" Margin="10"
-            Height="200"
-            IsReadOnly="False">
-        </TextBox>
-
-        <TextBox
-            Grid.Row="5" Grid.Column="0"
-            x:Name="tbBounty"
-            Background="Gold"
-            TextWrapping="Wrap"
-            Padding="10" Margin="10"
-            IsReadOnly="False"
-            >
-
-        </TextBox>
-
+    <DockPanel x:Name="pMain" LastChildFill="True">
         <Button
-            Grid.Row="5" Grid.Column="1"
             x:Name="createQuestButton"
+            DockPanel.Dock="Bottom"
+            Padding="20"
             Background="Silver"
             Margin="20"
             Content="Створити квест"
             Click="createQuestButton_Click">
 
         </Button>
-
-    </Grid>
+    </DockPanel>
 </Window>

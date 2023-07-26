@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows;
+using System.Collections;
 
 namespace TempestQuestDesk
 {
@@ -41,7 +42,7 @@ namespace TempestQuestDesk
 
         private void PushToDB(IQuest quest)
         {
-            DataRow row = quest.ToRow(Quests);
+            DataRow row = quest.ToRow();
             row.ItemArray[0] = DBNull.Value;
             connector.CreateInsertCommand(tableName, row);
             connector.InsertExecute();
@@ -83,7 +84,7 @@ namespace TempestQuestDesk
 
         private static void PushToDB(IQuest quest)
         {
-            DataRow row = quest.ToRow(Quests);
+            DataRow row = quest.ToRow();
             row.ItemArray[0] = DBNull.Value;
             connector.ConnectionString = conString;
             connector.CreateInsertCommand(tableName, row);
@@ -105,16 +106,15 @@ namespace TempestQuestDesk
             openedQuestList.Add(selectedQuest);
         }
 
-        /*internal static void CloseQuest(int questID, QuestType questType)
+        internal static void UpdateQuest(IQuest holdingQuest)
         {
-            foreach (IQuest quest in openedQuestList)
+            try
             {
-                if(quest.Id == questID && quest.QuestType == questType)
-                {
-                    openedQuestList.Remove(quest);
-                    break;
-                }
+                DataRow row = holdingQuest.ToRow();
+                connector.ConnectionString = conString;
+                connector.CreateUpdateCommand(holdingQuest.QuestType.ToString(), row);
             }
-        }*/
+            catch { }
+        }
     }
 }

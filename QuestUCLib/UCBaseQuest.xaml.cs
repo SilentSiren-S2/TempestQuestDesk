@@ -31,5 +31,12 @@ namespace QuestUCLib
             tbDescription.Text = description;
             tbReward.Text = reward;
         }
+
+        public void GetFields(out string name, out string description, out string reward)
+        {
+            name = tbName.Text;
+            description = tbDescription.Text;
+            reward = tbReward.Text;
+        }
     }
 }

@@ -16,7 +16,9 @@ namespace TempestQuestDesk.Quests
         public string Name { get; set; }
         public string Description { get; set; }
         public string Reward { get; set; }
+        public bool IsActive { get; set; }
         DataRow AsRow { get; set; }
+        private DataTable table;
 
         public QuestType QuestType => QuestType.BaseQuest;
 
@@ -35,10 +37,16 @@ namespace TempestQuestDesk.Quests
             this.Reward = row["Reward"].ToString();
         }
 
-        public DataRow ToRow(DataTable table)
+        public DataRow ToRow()
         {
+            table = new DataTable("BaseQuest");
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Name");
+            table.Columns.Add("Description");
+            table.Columns.Add("Reward");
+            table.Columns.Add("AsRow", typeof(bool));
             AsRow = table.NewRow();
-            AsRow.ItemArray = new object[] { Name, Description, Reward };
+            AsRow.ItemArray = new object[] {Id, Name, Description, Reward, IsActive};
             return AsRow;
         }
 

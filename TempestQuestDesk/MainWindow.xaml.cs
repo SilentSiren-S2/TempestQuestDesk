@@ -25,6 +25,7 @@ namespace TempestQuestDesk
     public partial class MainWindow : Window
     {
         Connector connector = new Connector();
+        internal QuestController controller3 = new QuestController();
         DataTable table = new DataTable();
         public MainWindow()
         {
@@ -33,7 +34,8 @@ namespace TempestQuestDesk
             try
             {
                 connector.ConnectionString = "Server=DESKTOP-D6NNJMI;Database=TempestData;Trusted_Connection=True;";
-                connector.CreateSelectCommand("BaseQuest");
+                var t = QuestType.BaseQuest.ToString();
+                connector.CreateSelectCommand(t);
                 table = connector.SelectExecute();
                 MainController.TableName("BaseQuest");
                 MainController.LoadQuests(table); 
@@ -47,7 +49,7 @@ namespace TempestQuestDesk
 
         private void createButton_Click(object sender, RoutedEventArgs e)
         {
-            FormCreateQuest quest = new FormCreateQuest();
+            FormCreateQuest quest = new FormCreateQuest(QuestType.BaseQuest);
             quest.Owner = this;
             quest.ShowDialog();
 
