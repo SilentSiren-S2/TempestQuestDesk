@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows;
 
 namespace TempestQuestDesk
 {
-    enum QuestType : int
+    public enum QuestType : int
     {
         BaseQuest = 0
     }
@@ -86,6 +87,13 @@ namespace TempestQuestDesk
             connector.ConnectionString = conString;
             connector.CreateInsertCommand(tableName, row);
             connector.InsertExecute();
+        }
+
+        internal static void OpenQuest(IQuest selectedQuest)
+        {
+            QuestWindow questWindow = new QuestWindow(selectedQuest);
+            questWindow.Show();
+            (Application.Current as App).QuestWindows.Add(questWindow);
         }
     }
 }

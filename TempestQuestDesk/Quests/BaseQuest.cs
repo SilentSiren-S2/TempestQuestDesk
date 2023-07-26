@@ -11,11 +11,14 @@ namespace TempestQuestDesk.Quests
 {
     class BaseQuest : IQuest
     {
+        //public QuestType GetQuestType() { return QuestType.BaseQuest; }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Reward { get; set; }
         DataRow AsRow { get; set; }
+
+        public QuestType QuestType => QuestType.BaseQuest;
 
         public BaseQuest(string name, string description, string reward)
         {

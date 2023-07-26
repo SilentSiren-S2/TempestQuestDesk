@@ -13,9 +13,14 @@ namespace TempestQuestDesk
     /// </summary>
     public partial class App : Application
     {
-        private List<FormCreateQuest> questWindows = new List<FormCreateQuest>();
-
-        public List<FormCreateQuest> QuestWindows
+        private List<FormCreateQuest> createQuestWindows = new List<FormCreateQuest>();
+        private List<QuestWindow> questWindows = new List<QuestWindow>();
+        public List<FormCreateQuest> CreateQuestWindows
+        {
+            get { return createQuestWindows; }
+            set { createQuestWindows = value; }
+        }
+        public List<QuestWindow> QuestWindows
         {
             get { return questWindows; }
             set { questWindows = value; }

@@ -43,11 +43,7 @@
                    Padding="10">
     
             DockPanel.Dock="Left"</TextBlock>
-        <ListBox x:Name="lbQuests" SelectionChanged="lbQuests_SelectionChanged">
-            <DataTemplate>
-                <TextBlock Text="{Binding Name}" />
-            </DataTemplate>
-        </ListBox>
+        <ListBox x:Name="lbQuests" SelectionChanged="lbQuests_SelectionChanged" MouseDoubleClick="lbQuests_MouseDoubleClick"/>
 
     </DockPanel>
 </Window>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -50,7 +51,7 @@ namespace TempestQuestDesk
             quest.Owner = this;
             quest.ShowDialog();
 
-            (Application.Current as App).QuestWindows.Add(quest);
+            (Application.Current as App).CreateQuestWindows.Add(quest);
         }
 
         private void openButton_Click(object sender, RoutedEventArgs e)
@@ -61,6 +62,19 @@ namespace TempestQuestDesk
         private void lbQuests_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             IQuest selectedQuest = (IQuest)lbQuests.SelectedItem;
+            if (selectedQuest != null)
+            {
+                MainController.OpenQuest(selectedQuest);
+            }
+        }
+
+        private void lbQuests_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            IQuest selectedQuest = (IQuest)lbQuests.SelectedItem;
+            if (selectedQuest != null)
+            {
+                MainController.OpenQuest(selectedQuest);
+            }
         }
     }
 }
