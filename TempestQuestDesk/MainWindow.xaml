@@ -38,11 +38,11 @@
                    Padding="10">
             DockPanel.Dock="Right"</TextBlock>
 
-        <TextBlock DockPanel.Dock="Left"
-                   Background="LightCoral"
-                   Padding="10">
-    
-            DockPanel.Dock="Left"</TextBlock>
+        <DockPanel x:Name="pLeft" DockPanel.Dock="Left" LastChildFill="True" Background="Orchid" Width="150" >
+            <StackPanel x:Name="spTypes" Orientation="Vertical" Margin="10">
+
+            </StackPanel>
+        </DockPanel>
         <ListBox x:Name="lbQuests" SelectionChanged="lbQuests_SelectionChanged" MouseDoubleClick="lbQuests_MouseDoubleClick"/>
 
     </DockPanel>

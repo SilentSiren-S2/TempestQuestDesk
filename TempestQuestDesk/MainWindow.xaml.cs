@@ -30,6 +30,16 @@ namespace TempestQuestDesk
         public MainWindow()
         {
             InitializeComponent();
+            QuestType[] questTypes = (QuestType[])Enum.GetValues(typeof(QuestType));
+
+            foreach (QuestType questType in questTypes)
+            {
+                RadioButton radioButton = new RadioButton();
+                radioButton.Content = questType.ToString();
+                radioButton.Click += bRefresh_Click;
+                spTypes.Children.Add(radioButton);
+            }
+
             MainController.ConString("Server=DESKTOP-D6NNJMI;Database=TempestData;Trusted_Connection=True;");
             bRefresh_Click(this, null);
         }

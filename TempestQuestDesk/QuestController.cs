@@ -13,7 +13,9 @@ namespace TempestQuestDesk
 {
     public enum QuestType : int
     {
-        BaseQuest = 0
+        BaseQuest = 0,
+        TrackQuest = 1,
+        TempQuest = 2
     }
 
     internal class QuestController
