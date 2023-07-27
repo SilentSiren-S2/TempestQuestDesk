@@ -31,20 +31,7 @@ namespace TempestQuestDesk
         {
             InitializeComponent();
             MainController.ConString("Server=DESKTOP-D6NNJMI;Database=TempestData;Trusted_Connection=True;");
-            try
-            {
-                connector.ConnectionString = "Server=DESKTOP-D6NNJMI;Database=TempestData;Trusted_Connection=True;";
-                var t = QuestType.BaseQuest.ToString();
-                connector.CreateSelectCommand(t);
-                table = connector.SelectExecute();
-                MainController.TableName("BaseQuest");
-                MainController.LoadQuests(table); 
-                lbQuests.Items.Clear();
-                lbQuests.ItemsSource = MainController.questList;
-            }
-            catch
-            {
-            }
+            bRefresh_Click(this, null);
         }
 
         private void createButton_Click(object sender, RoutedEventArgs e)
@@ -76,6 +63,24 @@ namespace TempestQuestDesk
             if (selectedQuest != null)
             {
                 MainController.OpenQuest(selectedQuest);
+            }
+        }
+
+        private void bRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                connector.ConnectionString = "Server=DESKTOP-D6NNJMI;Database=TempestData;Trusted_Connection=True;";
+                var t = QuestType.BaseQuest.ToString();
+                connector.CreateSelectCommand(t);
+                table = connector.SelectExecute();
+                MainController.LoadQuests(table);
+                lbQuests.ItemsSource = null;
+                lbQuests.Items.Clear();
+                lbQuests.ItemsSource = MainController.questList;
+            }
+            catch
+            {
             }
         }
     }

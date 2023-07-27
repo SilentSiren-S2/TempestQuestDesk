@@ -75,19 +75,19 @@ namespace TempestQuestDesk
             }
         }
 
-        public static void CreateQuest(string name, string description, string reward)
+        public static void CreateBaseQuest(string name, string description, string reward)
         {
             BaseQuest quest = new BaseQuest(name, description, reward);
-            questList.Add(quest);
             PushToDB(quest);
+            questList.Add(quest);
         }
 
         private static void PushToDB(IQuest quest)
         {
             DataRow row = quest.ToRow();
-            row.ItemArray[0] = DBNull.Value;
+            row.Table.Columns.Remove("ID");
             connector.ConnectionString = conString;
-            connector.CreateInsertCommand(tableName, row);
+            connector.CreateInsertCommand(quest.QuestType.ToString(), row);
             connector.InsertExecute();
         }
 
@@ -113,6 +113,7 @@ namespace TempestQuestDesk
                 DataRow row = holdingQuest.ToRow();
                 connector.ConnectionString = conString;
                 connector.CreateUpdateCommand(holdingQuest.QuestType.ToString(), row);
+                connector.UpdateExecute();
             }
             catch { }
         }

@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using TempestQuestDesk.Quests;
 
 namespace TempestQuestDesk
@@ -23,6 +24,7 @@ namespace TempestQuestDesk
     public partial class FormCreateQuest : Window
     {
         private UserControl ucQuest;
+        private QuestType questType;
         public FormCreateQuest()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace TempestQuestDesk
 
         internal FormCreateQuest(QuestType questType) : this()
         {
+            this.questType = questType;
             switch (questType)
             {
                 case QuestType.BaseQuest:
@@ -43,7 +46,15 @@ namespace TempestQuestDesk
         {
             try
             {
-                //MainController.CreateQuest(tbName.Text, tbDescription.Text, tbBounty.Text, true);
+                switch (questType)
+                {
+                    case QuestType.BaseQuest:
+                        (ucQuest as UCBaseQuest).GetFields(out var name, out var description, out var reward);
+                        BaseQuest baseQuest = new BaseQuest(name, description, reward); 
+                        MainController.CreateBaseQuest(name, description, reward);
+                        break;
+                }
+                
                 DialogResult = true;
             }
             catch
