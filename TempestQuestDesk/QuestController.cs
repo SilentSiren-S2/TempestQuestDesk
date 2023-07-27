@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Windows;
 using System.Collections;
+using System.Windows.Documents;
 
 namespace TempestQuestDesk
 {
@@ -15,7 +16,9 @@ namespace TempestQuestDesk
     {
         BaseQuest = 0,
         TrackQuest = 1,
-        TempQuest = 2
+        TempQuest = 2,
+        Epic = 4,
+        SubQuest = 5
     }
 
     internal class QuestController
@@ -75,6 +78,14 @@ namespace TempestQuestDesk
                 IQuest quest = new BaseQuest(row);
                 AddQuest(quest);
             }
+        }
+
+        public static void LoadQuests(QuestType questType)
+        {
+            connector.ConnectionString = "Server=DESKTOP-D6NNJMI;Database=TempestData;Trusted_Connection=True;";
+            connector.CreateSelectCommand(questType.ToString());
+            var table = connector.SelectExecute();
+            LoadQuests(table);
         }
 
         public static void CreateBaseQuest(string name, string description, string reward)

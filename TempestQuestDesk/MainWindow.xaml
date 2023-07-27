@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:TempestQuestDesk"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <DockPanel LastChildFill="True">
+    <DockPanel x:Name="pMain" LastChildFill="True">
 
         <StackPanel
             DockPanel.Dock="Top"
             Orientation="Horizontal"
-            Background="BurlyWood"
+            Background="Khaki"
         >
             <Button x:Name="createButton" Content="Створити квест" Click="createButton_Click" Background="LimeGreen" Padding="10" Margin="10"/>
             <Button x:Name="openButton" Content="Відкрити квест" Click="openButton_Click" Background="LimeGreen" Padding="10" Margin="10"/>
@@ -22,16 +22,12 @@
             <TextBlock Background="LightCoral" Padding="10" Margin="10">TextBlock 5</TextBlock>
         </StackPanel>
 
-        <TextBlock DockPanel.Dock="Top"
-                   Background="BurlyWood"
-                   Padding="20">
-            Toolbar
-        </TextBlock>
-        <QuestUCLib:UserControl1 x:Name="uc1" DockPanel.Dock="Bottom" />
         <TextBlock DockPanel.Dock="Bottom"
-                   Background="LightGreen" 
+                   Background="DarkKhaki" 
                    Padding="10">
             DockPanel.Dock="Bottom"</TextBlock>
+
+        <QuestUCLib:UserControl1 x:Name="uc1" DockPanel.Dock="Bottom" />
 
         <TextBlock DockPanel.Dock="Right"
                    Background="LightCyan"
@@ -43,7 +39,9 @@
 
             </StackPanel>
         </DockPanel>
-        <ListBox x:Name="lbQuests" SelectionChanged="lbQuests_SelectionChanged" MouseDoubleClick="lbQuests_MouseDoubleClick"/>
-
+        <ListBox x:Name="lbQuests" DockPanel.Dock="Left" Background="Ivory" SelectionChanged="lbQuests_SelectionChanged" MouseDoubleClick="lbQuests_MouseDoubleClick" Width="169"/>
+        <Frame x:Name="fMain" Background="DarkKhaki">
+            
+        </Frame>
     </DockPanel>
 </Window>

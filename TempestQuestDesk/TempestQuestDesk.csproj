@@ -55,12 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BaseQuestPage.xaml.cs">
+      <DependentUpon>BaseQuestPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QuestController.cs" />
     <Compile Include="Quests\BaseQuest.cs" />
     <Compile Include="Quests\IQuest.cs" />
+    <Compile Include="Quests\TrackQuest.cs" />
     <Compile Include="QuestWindow.xaml.cs">
       <DependentUpon>QuestWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="BaseQuestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FormCreateQuest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

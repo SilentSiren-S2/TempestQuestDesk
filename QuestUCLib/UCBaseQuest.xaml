@@ -28,7 +28,7 @@
             x:Name="tbName"
             Background="Khaki"
             TextWrapping="Wrap"
-            Padding="10" Margin="15"
+            Padding="3" Margin="15"
             IsReadOnly="False">
         </TextBox>
 
@@ -49,7 +49,7 @@
             x:Name="tbReward"
             Background="Gold"
             TextWrapping="Wrap"
-            Padding="10" Margin="10"
+            Padding="3" Margin="10"
             IsReadOnly="False"
             >
 

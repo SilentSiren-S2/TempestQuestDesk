@@ -27,6 +27,7 @@ namespace TempestQuestDesk
         Connector connector = new Connector();
         internal QuestController controller3 = new QuestController();
         DataTable table = new DataTable();
+        QuestType curType;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,12 +37,12 @@ namespace TempestQuestDesk
             {
                 RadioButton radioButton = new RadioButton();
                 radioButton.Content = questType.ToString();
-                radioButton.Click += bRefresh_Click;
+                radioButton.Click += rb_Click;
+                radioButton.Tag = questType;
                 spTypes.Children.Add(radioButton);
             }
 
             MainController.ConString("Server=DESKTOP-D6NNJMI;Database=TempestData;Trusted_Connection=True;");
-            bRefresh_Click(this, null);
         }
 
         private void createButton_Click(object sender, RoutedEventArgs e)
@@ -80,6 +81,7 @@ namespace TempestQuestDesk
         {
             try
             {
+                //switch()
                 connector.ConnectionString = "Server=DESKTOP-D6NNJMI;Database=TempestData;Trusted_Connection=True;";
                 var t = QuestType.BaseQuest.ToString();
                 connector.CreateSelectCommand(t);
@@ -91,6 +93,22 @@ namespace TempestQuestDesk
             }
             catch
             {
+            }
+        }
+
+        private void rb_Click(object sender, RoutedEventArgs e)
+        {
+            RadioButton clickedRadioButton = (RadioButton)sender;
+            switch (clickedRadioButton.Tag)
+            {
+                case (QuestType.BaseQuest):
+                    curType = QuestType.BaseQuest;
+                    BaseQuestPage bqPage = new BaseQuestPage();
+                    bqPage.Load();
+                    fMain.Content = bqPage;
+                    break;
+                default:
+                    break;
             }
         }
     }
