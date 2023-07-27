@@ -52,12 +52,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UCTrackQuest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="UCBaseQuest.xaml.cs">
       <DependentUpon>UCBaseQuest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCTrackQuest.xaml.cs">
+      <DependentUpon>UCTrackQuest.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>

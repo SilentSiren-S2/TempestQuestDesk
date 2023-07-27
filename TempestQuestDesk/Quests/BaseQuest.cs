@@ -18,14 +18,14 @@ namespace TempestQuestDesk.Quests
         public string Reward { get; set; }
         public bool IsActive { get; set; }
         DataRow AsRow { get; set; }
-        private DataTable table;
+        protected DataTable table;
 
         public QuestType QuestType => QuestType.BaseQuest;
 
         public BaseQuest(string name, string description, string reward) : this(name, description, reward, true)
         {
         }
-        public BaseQuest(string name, string description, string reward, bool isActive)
+        protected BaseQuest(string name, string description, string reward, bool isActive)
         {
             this.Name = name;
             this.Description = description;

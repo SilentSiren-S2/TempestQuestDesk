@@ -47,7 +47,7 @@ namespace TempestQuestDesk
 
         private void createButton_Click(object sender, RoutedEventArgs e)
         {
-            FormCreateQuest quest = new FormCreateQuest(QuestType.BaseQuest);
+            FormCreateQuest quest = new FormCreateQuest(curType);
             quest.Owner = this;
             quest.ShowDialog();
 
@@ -106,6 +106,12 @@ namespace TempestQuestDesk
                     BaseQuestPage bqPage = new BaseQuestPage();
                     bqPage.Load();
                     fMain.Content = bqPage;
+                    break;
+                case (QuestType.TrackQuest): 
+                    curType = QuestType.TrackQuest;
+                    TrackQuestPage tqPage = new TrackQuestPage();
+                    tqPage.Load();
+                    fMain.Content = tqPage;
                     break;
                 default:
                     break;

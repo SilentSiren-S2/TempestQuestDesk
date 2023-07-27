@@ -95,6 +95,17 @@ namespace TempestQuestDesk
             questList.Add(quest);
         }
 
+        internal static void CreateTrackQuest(TrackQuest trackQuest)
+        {
+            PushToDB(trackQuest);
+            questList.Add(trackQuest);
+        }
+
+        internal static void CreateTrackQuest(string tqname, string tqdescription, string tqreward, int tqgoal)
+        {
+            throw new NotImplementedException();
+        }
+
         private static void PushToDB(IQuest quest)
         {
             DataRow row = quest.ToRow();

@@ -36,7 +36,12 @@ namespace TempestQuestDesk
             switch (questType)
             {
                 case QuestType.BaseQuest:
+                default:
                     ucQuest = new UCBaseQuest();
+                    pMain.Children.Add(ucQuest);
+                    break;
+                case QuestType.TrackQuest:
+                    ucQuest = new UCTrackQuest();
                     pMain.Children.Add(ucQuest);
                     break;
             }
@@ -49,9 +54,14 @@ namespace TempestQuestDesk
                 switch (questType)
                 {
                     case QuestType.BaseQuest:
-                        (ucQuest as UCBaseQuest).GetFields(out var name, out var description, out var reward);
-                        BaseQuest baseQuest = new BaseQuest(name, description, reward); 
-                        MainController.CreateBaseQuest(name, description, reward);
+                        (ucQuest as UCBaseQuest).GetFields(out var bqname, out var bqdescription, out var bqreward);
+                        BaseQuest baseQuest = new BaseQuest(bqname, bqdescription, bqreward); 
+                        MainController.CreateBaseQuest(bqname, bqdescription, bqreward);
+                        break;
+                    case QuestType.TrackQuest:
+                        (ucQuest as UCTrackQuest).GetFields(out var tqname, out var tqdescription, out var tqreward, out var tqgoal);
+                        TrackQuest trackQuest = new TrackQuest(tqname, tqdescription, tqreward, tqgoal);
+                        MainController.CreateTrackQuest(trackQuest);
                         break;
                 }
                 
