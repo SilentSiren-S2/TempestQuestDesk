@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:QuestUCLib"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="450">
-    <Grid ShowGridLines="False" Background="DarkOliveGreen">
+    <Grid ShowGridLines="False" Background="BlueViolet">
         <!--Определение колонок таблицы-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -56,8 +56,12 @@
             >
 
         </TextBox>
-        <Label x:Name="lGoal" Content="Ціль:" HorizontalAlignment="Left" Margin="100,0,0,0" Grid.Row="6" VerticalAlignment="Center"/>
-        <TextBox x:Name="tbGoal" HorizontalAlignment="Center" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Background="DarkKhaki" BorderThickness="2,2,2,2"/>
+        <DockPanel Grid.Row="5" Background="AliceBlue" LastChildFill="True" Margin="190,30,190,30" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Button x:Name="bUp" DockPanel.Dock="Top" Content="+" Height="20" Click="bUp_Click"/>
+            <Button x:Name="bDown" DockPanel.Dock="Bottom" Content="-" Height="20" Click="bDown_Click"/>
+            <TextBox x:Name="tbCounter" TextAlignment="Center"/>
+        </DockPanel>
+        <TextBox x:Name="tbGoal" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Background="DarkKhaki" BorderThickness="2,2,2,2" Visibility="Hidden"/>
         <ProgressBar Grid.Row="7" Grid.ColumnSpan="2"  
             Margin="10" 
             x:Name="pbProgress"

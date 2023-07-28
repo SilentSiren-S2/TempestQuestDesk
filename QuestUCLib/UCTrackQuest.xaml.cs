@@ -20,6 +20,7 @@ namespace QuestUCLib
     /// </summary>
     public partial class UCTrackQuest : UserControl
     {
+        private int CurrentProgress;
         public UCTrackQuest()
         {
             InitializeComponent();
@@ -32,17 +33,30 @@ namespace QuestUCLib
             tbReward.Visibility = Visibility.Hidden;
             pbProgress.Maximum = goal;
             pbProgress.Value = currentProgress;
-            lGoal.Visibility = Visibility.Hidden;
             tbGoal.Visibility = Visibility.Hidden;
-            tbProgress.Text = $"{currentProgress}/{goal}";
+            CurrentProgress = currentProgress;
+            tbProgress.Text = $"{CurrentProgress}/{goal}";
         }
 
-        public void GetFields(out string name, out string description, out string reward, out int goal)
+        public void GetFields(out string name, out string description, out string reward, out int goal, out int currentProgress)
         {
             name = tbName.Text;
             description = tbDescription.Text;
             reward = tbReward.Text;
-            goal = Int32.Parse(tbGoal.Text);
+            goal = (int)pbProgress.Maximum;
+            currentProgress = CurrentProgress;
+        }
+
+        private void bUp_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentProgress += Int32.Parse(tbCounter.Text);
+            pbProgress.Value = CurrentProgress;
+        }
+
+        private void bDown_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentProgress -= Int32.Parse(tbCounter.Text);
+            pbProgress.Value = CurrentProgress;
         }
     }
 }

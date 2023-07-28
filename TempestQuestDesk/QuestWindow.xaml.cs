@@ -61,12 +61,22 @@ namespace TempestQuestDesk
             switch(holdingQuest.QuestType)
             {
                 case QuestType.BaseQuest:
-                    (ucQuest as UCBaseQuest).GetFields(out var name, out var description, out var reward);
+                    (ucQuest as UCBaseQuest).GetFields(out var bqname, out var bqdescription, out var bqreward);
                     BaseQuest baseQuest = (BaseQuest)holdingQuest;
-                    baseQuest.Name = name; 
-                    baseQuest.Description = description; 
-                    baseQuest.Reward = reward;
+                    baseQuest.Name = bqname; 
+                    baseQuest.Description = bqdescription; 
+                    baseQuest.Reward = bqreward;
                     holdingQuest = baseQuest;
+                    break;
+                case QuestType.TrackQuest:
+                    (ucQuest as UCTrackQuest).GetFields(out var tqname, out var tqdescription, out var tqreward, out int goal, out int currentProgress);
+                    TrackQuest trackQuest = (TrackQuest)holdingQuest;
+                    trackQuest.Name = tqname;
+                    trackQuest.Description = tqdescription;
+                    trackQuest.Reward = tqreward;
+                    trackQuest.Goal = goal;
+                    trackQuest.CurrentProgress = currentProgress;
+                    holdingQuest = trackQuest;
                     break;
             }
             MainController.UpdateQuest(holdingQuest);

@@ -59,7 +59,7 @@ namespace TempestQuestDesk
                         MainController.CreateBaseQuest(bqname, bqdescription, bqreward);
                         break;
                     case QuestType.TrackQuest:
-                        (ucQuest as UCTrackQuest).GetFields(out var tqname, out var tqdescription, out var tqreward, out var tqgoal);
+                        (ucQuest as UCTrackQuest).GetFields(out var tqname, out var tqdescription, out var tqreward, out var tqgoal, out var currentProgress);
                         TrackQuest trackQuest = new TrackQuest(tqname, tqdescription, tqreward, tqgoal, 0);
                         MainController.CreateTrackQuest(trackQuest);
                         break;
