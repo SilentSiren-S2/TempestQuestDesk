@@ -17,11 +17,13 @@ namespace TempestQuestDesk.Quests
         public TrackQuest(DataRow row) : base(row)
         {
             this.Goal = (int)row["Goal"];
+            this.CurrentProgress = (int)row["CurrentProgress"];
         }
 
-        public TrackQuest(string name, string description, string reward, int goal) : this(name, description, reward, true)
+        public TrackQuest(string name, string description, string reward, int goal, int currentProgress) : this(name, description, reward, true)
         {
             Goal = goal;
+            CurrentProgress = currentProgress;
         }
 
         public TrackQuest(string name, string description, string reward, bool isActive) : base(name, description, reward, isActive)
@@ -30,14 +32,16 @@ namespace TempestQuestDesk.Quests
 
         public new DataRow ToRow()
         {
-            table = new DataTable("BaseQuest");
+            table = new DataTable("TrackQuest");
             table.Columns.Add("ID", typeof(int));
             table.Columns.Add("Name");
             table.Columns.Add("Description");
             table.Columns.Add("Reward");
             table.Columns.Add("Active");
+            table.Columns.Add("Goal");
+            table.Columns.Add("CurrentProgress");
             AsRow = table.NewRow();
-            AsRow.ItemArray = new object[] { Id, Name, Description, Reward, IsActive ? 1 : 0 };
+            AsRow.ItemArray = new object[] { Id, Name, Description, Reward, IsActive ? 1 : 0, Goal, CurrentProgress };
             return AsRow;
         }
     }

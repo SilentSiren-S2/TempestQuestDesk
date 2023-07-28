@@ -25,6 +25,18 @@ namespace QuestUCLib
             InitializeComponent();
         }
 
+        public UCTrackQuest(string name, string description, string reward, int goal, int currentProgress) : this()
+        {
+            tbName.Text = name;
+            tbDescription.Text = description;
+            tbReward.Visibility = Visibility.Hidden;
+            pbProgress.Maximum = goal;
+            pbProgress.Value = currentProgress;
+            lGoal.Visibility = Visibility.Hidden;
+            tbGoal.Visibility = Visibility.Hidden;
+            tbProgress.Text = $"{currentProgress}/{goal}";
+        }
+
         public void GetFields(out string name, out string description, out string reward, out int goal)
         {
             name = tbName.Text;

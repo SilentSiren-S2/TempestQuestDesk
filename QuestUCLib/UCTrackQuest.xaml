@@ -46,7 +46,7 @@
         </TextBox>
 
         <TextBox
-            Grid.Row="7" Grid.Column="0"
+            Grid.Row="4" Grid.Column="0"
             Grid.ColumnSpan="2"
             x:Name="tbReward"
             Background="Gold"
@@ -56,22 +56,15 @@
             >
 
         </TextBox>
-        <StatusBar Grid.Row="4" Margin="10"
-            Grid.ColumnSpan="2" 
-            x:Name="sbProgress"
-            Background="Silver"
-            Visibility="Hidden"       
-            >
-        </StatusBar>
-        <ProgressBar Grid.Row="6" Grid.ColumnSpan="2"  
+        <Label x:Name="lGoal" Content="Ціль:" HorizontalAlignment="Left" Margin="100,0,0,0" Grid.Row="6" VerticalAlignment="Center"/>
+        <TextBox x:Name="tbGoal" HorizontalAlignment="Center" Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Background="DarkKhaki" BorderThickness="2,2,2,2"/>
+        <ProgressBar Grid.Row="7" Grid.ColumnSpan="2"  
             Margin="10" 
             x:Name="pbProgress"
             Background="Silver"
             >
-
         </ProgressBar>
+        <TextBox x:Name="tbProgress" Grid.Row="7" Grid.ColumnSpan="2" VerticalAlignment="Center" TextAlignment="Center" Margin="150,25,150,25" Background="Violet" BorderThickness="2,2,2,2"/>
         <!--<Label x:Name="lGoal" Grid.Row="5"/>-->
-        <Label Content="Ціль:" HorizontalAlignment="Left" Margin="100,0,0,0" Grid.Row="5" VerticalAlignment="Center"/>
-        <TextBox x:Name="tbGoal" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Background="DarkKhaki" BorderThickness="0,0,0,0"/>
     </Grid>
 </UserControl>

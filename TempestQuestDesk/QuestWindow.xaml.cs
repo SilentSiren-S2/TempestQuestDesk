@@ -42,6 +42,12 @@ namespace TempestQuestDesk
                     ucQuest = new UCBaseQuest(baseQuest.Name, baseQuest.Description, baseQuest.Reward);
                     pMain.Children.Add(ucQuest);
                     break;
+                case QuestType.TrackQuest:
+                    TrackQuest trackQuest = (TrackQuest)quest;
+                    this.Title = trackQuest.Name;
+                    ucQuest = new UCTrackQuest(trackQuest.Name, trackQuest.Description, trackQuest.Reward, trackQuest.Goal, trackQuest.CurrentProgress);
+                    pMain.Children.Add(ucQuest);
+                    break;
             }
         }
 

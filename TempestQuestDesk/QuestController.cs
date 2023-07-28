@@ -9,6 +9,7 @@ using System.Data;
 using System.Windows;
 using System.Collections;
 using System.Windows.Documents;
+using QuestUCLib;
 
 namespace TempestQuestDesk
 {
@@ -73,10 +74,22 @@ namespace TempestQuestDesk
         public static void LoadQuests(DataTable dataTable)
         {
             questList.Clear();
-            foreach (DataRow row in dataTable.Rows)
+            switch (dataTable.TableName)
             {
-                IQuest quest = new BaseQuest(row);
-                AddQuest(quest);
+                case "BaseQuest":
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        IQuest quest = new BaseQuest(row);
+                        AddQuest(quest);
+                    }
+                    break;
+                case "TrackQuest":
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        IQuest quest = new TrackQuest(row);
+                        AddQuest(quest);
+                    }
+                    break;
             }
         }
 
@@ -85,6 +98,7 @@ namespace TempestQuestDesk
             connector.ConnectionString = "Server=DESKTOP-D6NNJMI;Database=TempestData;Trusted_Connection=True;";
             connector.CreateSelectCommand(questType.ToString());
             var table = connector.SelectExecute();
+            table.TableName = questType.ToString();
             LoadQuests(table);
         }
 
@@ -108,11 +122,15 @@ namespace TempestQuestDesk
 
         private static void PushToDB(IQuest quest)
         {
-            DataRow row = quest.ToRow();
-            row.Table.Columns.Remove("ID");
-            connector.ConnectionString = conString;
-            connector.CreateInsertCommand(quest.QuestType.ToString(), row);
-            connector.InsertExecute();
+            try
+            {
+                DataRow row = quest.ToRow();
+                row.Table.Columns.Remove("ID");
+                connector.ConnectionString = conString;
+                connector.CreateInsertCommand(quest.QuestType.ToString(), row);
+                connector.InsertExecute();
+            }
+            catch { }
         }
 
         internal static void OpenQuest(IQuest selectedQuest)

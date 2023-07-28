@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TempestQuestDesk"
         xmlns:QuestUCLib="clr-namespace:QuestUCLib;assembly=QuestUCLib" x:Class="TempestQuestDesk.QuestWindow"
         mc:Ignorable="d"
-        Title="QuestWindow" Height="500" Width="300" Closing="Window_Closing" Icon="Resources/TempesT.bmp">
+        Title="QuestWindow" Height="650" Width="450" Closing="Window_Closing" Icon="Resources/TempesT.bmp">
     <DockPanel x:Name="pMain" LastChildFill="True" Background="Indigo">
         <StackPanel x:Name="spButtons" DockPanel.Dock="Bottom" Orientation="Horizontal" Height="50" Background="BlueViolet">
             <Button x:Name="bUpdateQuest" Content="Оновити" Background="SpringGreen" Padding="3" Margin="7" Width="120" Click="bUpdateQuest_Click"/>
