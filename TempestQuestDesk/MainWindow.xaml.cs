@@ -59,24 +59,6 @@ namespace TempestQuestDesk
 
         }
 
-        private void lbQuests_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            IQuest selectedQuest = (IQuest)lbQuests.SelectedItem;
-            if (selectedQuest != null)
-            {
-                MainController.OpenQuest(selectedQuest);
-            }
-        }
-
-        private void lbQuests_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            IQuest selectedQuest = (IQuest)lbQuests.SelectedItem;
-            if (selectedQuest != null)
-            {
-                MainController.OpenQuest(selectedQuest);
-            }
-        }
-
         private void bRefresh_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -87,9 +69,6 @@ namespace TempestQuestDesk
                 connector.CreateSelectCommand(t);
                 table = connector.SelectExecute();
                 MainController.LoadQuests(table);
-                lbQuests.ItemsSource = null;
-                lbQuests.Items.Clear();
-                lbQuests.ItemsSource = MainController.questList;
             }
             catch
             {

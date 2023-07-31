@@ -68,7 +68,7 @@
             Background="Silver"
             >
         </ProgressBar>
-        <TextBox x:Name="tbProgress" Grid.Row="7" Grid.ColumnSpan="2" VerticalAlignment="Center" TextAlignment="Center" Margin="150,25,150,25" Background="Violet" BorderThickness="2,2,2,2"/>
+        <TextBox x:Name="tbProgress" Grid.Row="7" Grid.ColumnSpan="2" VerticalAlignment="Center" TextAlignment="Center" Margin="150,25,150,25" Background="Violet" BorderThickness="2,2,2,2" PreviewTextInput="tbProgress_PreviewTextInput"/>
         <!--<Label x:Name="lGoal" Grid.Row="5"/>-->
     </Grid>
 </UserControl>

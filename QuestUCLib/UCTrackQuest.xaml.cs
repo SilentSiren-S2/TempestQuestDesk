@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace QuestUCLib
 {
@@ -35,7 +36,16 @@ namespace QuestUCLib
             pbProgress.Value = currentProgress;
             tbGoal.Visibility = Visibility.Hidden;
             CurrentProgress = currentProgress;
+            tbProgress.IsReadOnly = true;
             tbProgress.Text = $"{CurrentProgress}/{goal}";
+        }
+
+        public void GetFields(out string name, out string description, out string reward, out int goal)
+        {
+            name = tbName.Text;
+            description = tbDescription.Text;
+            reward = tbReward.Text;
+            goal = Int32.Parse(tbProgress.Text);
         }
 
         public void GetFields(out string name, out string description, out string reward, out int goal, out int currentProgress)
@@ -50,13 +60,23 @@ namespace QuestUCLib
         private void bUp_Click(object sender, RoutedEventArgs e)
         {
             CurrentProgress += Int32.Parse(tbCounter.Text);
-            pbProgress.Value = CurrentProgress;
+            pbProgress.Value = CurrentProgress; 
+            tbProgress.Text = $"{pbProgress.Value}/{pbProgress.Maximum}";
         }
 
         private void bDown_Click(object sender, RoutedEventArgs e)
         {
             CurrentProgress -= Int32.Parse(tbCounter.Text);
             pbProgress.Value = CurrentProgress;
+            tbProgress.Text = $"{pbProgress.Value} / {pbProgress.Maximum}";
+        }
+
+        private void tbProgress_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

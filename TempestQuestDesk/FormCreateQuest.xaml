@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TempestQuestDesk"
         mc:Ignorable="d"
-        Title="FormCreateQuest" Height="500" Width="360">
+        Title="FormCreateQuest" Height="750" Width="360">
     <DockPanel x:Name="pMain" LastChildFill="True">
         <Button
             x:Name="createQuestButton"
